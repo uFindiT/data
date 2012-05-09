@@ -76,5 +76,10 @@ public class Station implements AbstractStation {
 	public String getLinie() {
 		return this.linie;
 	}
-
+	
+	private HashMap<AbstractStation, Integer> getFromDB() {
+		HashMap<AbstractStation, Integer> hm = new HashMap<AbstractStation, Integer>();
+		//Do something
+		return hm;
+	}
 }
