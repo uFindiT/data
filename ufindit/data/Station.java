@@ -8,7 +8,7 @@ package ufindit.data;
  * @version 02.05.2012
  *
  */
-public class Station {
+public class Station implements AbstractStation{
 
 	/**
 	 * 
