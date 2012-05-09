@@ -5,7 +5,7 @@ public interface AbstractStation {
 	/**
 	 * -String name
 	 * - list<Station, Integer> nachf(ALLE nachfolgerstationen werden gespeichert)
-	 * - Station vorg (Der Vorgänger von dem gekommen wird 
+	 * - Station vorg (Der Vorgï¿½nger von dem gekommen wird 
 	 * - Int Duration
 	 * - boolean locked
 	 * - boolean umstieg
@@ -17,7 +17,7 @@ public interface AbstractStation {
 	public int getDuration();
 	public void lock(); //Setzt Attribut lock auf true!
 	public boolean isLocked();
-	public void isUmstieg();//Prüft ob vom Vorgänger zu dieser Station sich die line(String) geändert hat. Wenn ja wird Umstieg auf true gesetzt!
+	public boolean isUmstieg();//Prï¿½ft ob vom Vorgï¿½nger zu dieser Station sich die line(String) geï¿½ndert hat. Wenn ja wird Umstieg auf true gesetzt!
 	public String getLinie();//returnt linie;
 	/**
 	 * Im Konstruktor werden die ganzen Attribute aus der Datenbank gelesen. 
