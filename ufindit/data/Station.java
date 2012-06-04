@@ -42,37 +42,30 @@ public class Station implements AbstractStation {
 		umstieg = false;
 	}
 
-	@Override
 	public void changePrevious(AbstractStation vorg) {
 		this.vorg = vorg;
 	}
 
-	@Override
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
 
-	@Override
 	public int getDuration() {
 		return this.duration;
 	}
 
-	@Override
 	public void lock() {
 		this.locked = true;
 	}
 
-	@Override
 	public boolean isLocked() {
 		return this.locked;
 	}
 
-	@Override
 	public boolean isUmstieg() {
 		return umstieg = vorg.getLinie().equals(this.linie);
 	}
 
-	@Override
 	public String getLinie() {
 		return this.linie;
 	}
@@ -80,6 +73,7 @@ public class Station implements AbstractStation {
 	private HashMap<AbstractStation, Integer> getFromDB() {
 		HashMap<AbstractStation, Integer> hm = new HashMap<AbstractStation, Integer>();
 		//Do something
+		
 		return hm;
 	}
 }
