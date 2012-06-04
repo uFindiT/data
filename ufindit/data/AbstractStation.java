@@ -1,6 +1,9 @@
 package ufindit.data;
 
-public interface AbstractStation {
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public abstract class AbstractStation {
 	//-name: String
 	/**
 	 * -String name
@@ -12,13 +15,15 @@ public interface AbstractStation {
 	 * - Strign linie
 	 * @param a
 	 */
-	public void changePrevious(AbstractStation a);
-	public void setDuration(int t); 
-	public int getDuration();
-	public void lock(); //Setzt Attribut lock auf true!
-	public boolean isLocked();
-	public boolean isUmstieg();//Pr�ft ob vom Vorg�nger zu dieser Station sich die line(String) ge�ndert hat. Wenn ja wird Umstieg auf true gesetzt!
-	public String getLinie();//returnt linie;
+	public abstract void changePrevious(AbstractStation a);
+	public abstract void setDuration(int t); 
+	public abstract int getDuration();
+	public abstract void lock(); //Setzt Attribut lock auf true!
+	public abstract boolean isLocked();
+	public abstract boolean isUmstieg();//Pr�ft ob vom Vorg�nger zu dieser Station sich die line(String) ge�ndert hat. Wenn ja wird Umstieg auf true gesetzt!
+	public abstract String getLinie();//returnt linie;
+	public abstract AbstractStation getVorg();
+	public abstract HashMap<Station, Integer> getNachfolger();
 	/**
 	 * Im Konstruktor werden die ganzen Attribute aus der Datenbank gelesen. 
 	 * Vorg. wird am Anfang null gelassen. locked ist false umstieg ist false ges. ist 10000!

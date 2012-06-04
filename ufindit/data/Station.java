@@ -11,7 +11,7 @@ import java.util.HashMap;
  * @version 02.05.2012
  * 
  */
-public class Station implements AbstractStation {
+public class Station extends AbstractStation {
 	// -name: String
 	/**
 	 * -String name - list<Station, Integer> nachf(ALLE nachfolgerstationen
@@ -21,7 +21,7 @@ public class Station implements AbstractStation {
 	 * @param a
 	 */
 	private String name;
-	private HashMap<AbstractStation, Integer> nachf;
+	private HashMap<Station, Integer> nachf;
 	private AbstractStation vorg;
 	private int duration;	//Gesamtdauer
 	private boolean locked;
@@ -41,7 +41,7 @@ public class Station implements AbstractStation {
 		locked = false;
 		umstieg = false;
 	}
-
+	//Ändert die Vorgängerstation
 	public void changePrevious(AbstractStation vorg) {
 		this.vorg = vorg;
 	}
@@ -70,10 +70,22 @@ public class Station implements AbstractStation {
 		return this.linie;
 	}
 	
-	private HashMap<AbstractStation, Integer> getFromDB() {
-		HashMap<AbstractStation, Integer> hm = new HashMap<AbstractStation, Integer>();
+	private HashMap<Station, Integer> getFromDB() {
+		HashMap<Station, Integer> hm = new HashMap<Station, Integer>();
 		//Do something
 		
 		return hm;
 	}
+	public AbstractStation getVorg(){
+		return vorg;
+	}
+	//Gibt die Nachfolgerstationen zurück
+	public HashMap<Station, Integer> getNachfolger(){
+		return nachf;
+	}
+	//Setzt den Vorgänger
+	public void setVorg(Station s){
+		vorg=s;
+	}
+
 }
