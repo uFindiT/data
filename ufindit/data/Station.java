@@ -65,8 +65,8 @@ public class Station{
 		return this.locked;
 	}
 
-	public boolean isUmstieg() {
-		return umstieg = vorg.getLinie().equals(this.linie);
+	public void setUmstieg(boolean b) {
+		umstieg = b;
 	}
 
 	public String getLinie() {
@@ -97,6 +97,10 @@ public class Station{
 	//Setz vorgängerlinie
 	public void setVorgLinie(String n){
 		vorglinie=n;
+	}
+	//Gibt zurück ob die Station ein umstieg ist
+	public boolean getUmstieg(){
+		return umstieg;
 	}
 
 }

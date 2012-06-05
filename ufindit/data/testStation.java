@@ -8,7 +8,7 @@ public class testStation {
 		CreateStation cs = new CreateStation();
 		cs.createNachfolger();//Initialisiseren der Nachfolger
 		ArrayList<Station> al = cs.getStationenListe();
-		Algorithm ag = new Algorithm(cs.getStation("Floridsdorf"), cs.getStation("Landstrasse"));
+		Algorithm ag = new Algorithm(cs.getStation("Floridsdorf"), cs.getStation("Kagran"));
 		ag.berechneWeg(cs.getStation("Floridsdorf"));
 		ag.createWeg();
 	}

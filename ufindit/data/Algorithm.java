@@ -67,8 +67,15 @@ public class Algorithm {
 	public void createWeg(){
 		Station s = endStation;
 		System.out.println("WEG!!");
+		System.out.println(s.getName()+" " + s.getLinie());
 		while(s.getVorg()!=null){
-			System.out.println(s.getName()+" " + s.getLinie());
+			
+			//Testen ob Umstieg!
+			if(s.getVorg().getLinie().length()>3){
+				if(!s.getVorg().getVorg().getLinie().equals(s.getLinie()))
+					//System.out.println("UMSTIEG!");
+				System.out.println(s.getVorg().getName()+" " + s.getVorg().getLinie() + " " +s.getVorg().getDuration());
+			}
 			s=s.getVorg();
 		}
 		System.out.println(s.getName()+" " + s.getLinie());
