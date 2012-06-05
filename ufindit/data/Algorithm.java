@@ -28,14 +28,15 @@ public class Algorithm {
 	 * @param s		Station von der der Weg berechnet wird!
 	 */
 	public void berechneWeg(Station s){
-		if(s.isLocked()) //Wenn die Station bereits gesperrt ist, wurde mit ihr schon gerechet
-			return;
+		
 		if(s.equals(endStation)){ //Bei der Endstation muss nichtmehr gerechnet werden
 			return;
 		}
-		if(s.getVorg().equals(null)){ //Wenn es die allererste Staion ist, wird die Dauer automatisch zu 0!
+		if(s.getVorg()==null){ //Wenn es die allererste Staion ist, wird die Dauer automatisch zu 0!
 			s.setDuration(0);
 		}
+		if(s.isLocked()) //Wenn die Station bereits gesperrt ist, wurde mit ihr schon gerechet
+			return;
 		else{
 			HashMap<Station, Integer> nachf=s.getNachfolger(); //Alle Nachfolger gespeichert!
 			//Nun werden alle Keys der Hashmap in einem gespeichert
@@ -59,5 +60,17 @@ public class Algorithm {
 				}
 			}
 		}
+	}
+	/**
+	 * Hier wird der berechnete Weg zurückgegeben. Als String für den Anfang
+	 */
+	public void createWeg(){
+		Station s = endStation;
+		System.out.println("WEG!!");
+		while(s.getVorg()!=null){
+			System.out.println(s.getName()+" " + s.getLinie());
+			s=s.getVorg();
+		}
+		System.out.println(s.getName()+" " + s.getLinie());
 	}
 }

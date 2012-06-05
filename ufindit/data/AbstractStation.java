@@ -15,14 +15,14 @@ public abstract class AbstractStation {
 	 * - Strign linie
 	 * @param a
 	 */
-	public abstract void changePrevious(AbstractStation a);
+	public abstract void changePrevious(Station a);
 	public abstract void setDuration(int t); 
 	public abstract int getDuration();
 	public abstract void lock(); //Setzt Attribut lock auf true!
 	public abstract boolean isLocked();
 	public abstract boolean isUmstieg();//Pr�ft ob vom Vorg�nger zu dieser Station sich die line(String) ge�ndert hat. Wenn ja wird Umstieg auf true gesetzt!
 	public abstract String getLinie();//returnt linie;
-	public abstract AbstractStation getVorg();
+	public abstract Station getVorg();
 	public abstract HashMap<Station, Integer> getNachfolger();
 	/**
 	 * Im Konstruktor werden die ganzen Attribute aus der Datenbank gelesen. 
