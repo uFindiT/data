@@ -11,13 +11,15 @@ import java.util.*;
  */
 public class Algorithm {
 	private Station startStation, endStation;
+	private ArrayList<Station> al = new ArrayList<Station>();
 	//private ArrayList<Station> stationen;
 	/**
 	 * Konstruktor setzt die Start- und die Endstation. 
 	 */
-	public Algorithm(Station s, Station e){ //, ArrayList<Station> stat)
+	public Algorithm(Station s, Station e, ArrayList<Station> ald){ //, ArrayList<Station> stat)
 		startStation = s;
 		endStation = e;
+		al =ald;
 		//stationen=stat;
 	}
 	/**
@@ -35,39 +37,62 @@ public class Algorithm {
 		if(s.getVorg()==null){ //Wenn es die allererste Staion ist, wird die Dauer automatisch zu 0!
 			s.setDuration(0);
 		}
-		if(s.isLocked()) //Wenn die Station bereits gesperrt ist, wurde mit ihr schon gerechet
+		if(s.isLocked()){ //Wenn die Station bereits gesperrt ist, wurde mit ihr schon gerechet
+			System.out.println(s.getName() + "locked");
 			return;
+		}
 		else{
-			HashMap<Station, Integer> nachf=s.getNachfolger(); //Alle Nachfolger gespeichert!
-			//Nun werden alle Keys der Hashmap in einem gespeichert
+			TreeMap<Station, Integer> nachf=s.getNachfolger(); //Alle Nachfolger gespeichert!
+			//Nun werden alle Keys der TreeMap in einem gespeichert
 			Set<Station> snamen = nachf.keySet();
 			//Nun wird für jede einzelne Station die Wegzeit + weitere Stationen berechnet!
 			Iterator<Station> it = snamen.iterator();
 			while(it.hasNext()){
-				//Sperren der Station
-				s.lock();
+				if(s.getName().equals("Spittelau") || s.getName().equals("Rossauer Laende") || s.getName().equals("Shottenring"))
+					System.out.println(" ");;
 				//Speichern in ein StationenObject
 				Station nf = it.next();
 				//Schauen ob de Weg von dieser Station kürzer ist
 				Integer altzeit = nf.getDuration();
-				if(s.getDuration()+nachf.get(nf) < altzeit){
+				System.out.println(altzeit + nf.getName());
+				if((s.getDuration()+nachf.get(nf)) <= altzeit.intValue()){
 					//Setzen des Vorgängers
 					nf.setVorg(s);
 					//Setzen der Dauer
 					nf.setDuration(s.getDuration()+nachf.get(nf));
 					//Berechnen des Wegens von dieser Station nun ausgehen!
-					berechneWeg(nf);
+					//berechneWeg(getShortest());
+					
 				}
+				
+				//Sperren der Station
+				s.lock();
 			}
+			
+//			it = snamen.iterator();
+//			//Suchen der kürzesten Station und berechnen des Weges
+//			while(it.hasNext()){
+//				
+//				//Speichern in ein StationenObject
+//				Station nf = it.next();
+//				berechneWeg(nf);
+//				//Sperren der Station
+//				//s.lock();
+//				
+//			}
+			System.out.println("KÜÜÜÜZERST!"+ getShortest().getName());
+			berechneWeg(getShortest());
+			
 		}
 	}
 	/**
 	 * Hier wird der berechnete Weg zurückgegeben. Als String für den Anfang
 	 */
-	public void createWeg(){
+	public void createWeg(CreateStation cs){
+		ArrayList<Station> al = cs.getStationen();
 		Station s = endStation;
 		System.out.println("WEG!!");
-		System.out.println(s.getName()+" " + s.getLinie());
+		System.out.println(s.getName()+" " + s.getLinie() + "  " + s.getDuration());
 		while(s.getVorg()!=null){
 			
 			//Testen ob Umstieg!
@@ -79,5 +104,21 @@ public class Algorithm {
 			s=s.getVorg();
 		}
 		System.out.println(s.getName()+" " + s.getLinie());
+	}
+	/**
+	 * Gibt Station zurück die kürzeste Wegzeit hat undfrei ist
+	 */
+	public Station getShortest(){
+		int mindauer=1000;
+		Station next=null;
+		Iterator<Station> it = al.iterator();
+		while(it.hasNext()){
+			Station nf = it.next();
+			if(nf.getDuration()<mindauer && !nf.isLocked()){
+				mindauer=nf.getDuration();
+				next=nf;
+			}
+		}
+		return next;
 	}
 }

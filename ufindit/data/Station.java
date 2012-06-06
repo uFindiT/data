@@ -4,14 +4,14 @@
 package ufindit.data;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.TreeMap;
 
 /**
  * @author Jakob Klepp, Daniel Reichmann
  * @version 02.05.2012
  * 
  */
-public class Station{
+public class Station implements Comparable<Station>{
 	// -name: String
 	/**
 	 * -String name - list<Station, Integer> nachf(ALLE nachfolgerstationen
@@ -21,7 +21,7 @@ public class Station{
 	 * @param a
 	 */
 	private String name;
-	private HashMap<Station, Integer> nachf;
+	private TreeMap<Station, Integer> nachf;
 	private Station vorg;
 	private int duration;	//Gesamtdauer
 	private boolean locked;
@@ -74,16 +74,16 @@ public class Station{
 	}
 	/**
 	 * Die Nachfolger werden hier initialisert
-	 * @return		Nachfolger in HashMap
+	 * @return		Nachfolger in TreeMap
 	 */
-	public void setNachfolger(HashMap<Station, Integer> hm) {
+	public void setNachfolger(TreeMap<Station, Integer> hm) {
 		nachf=hm;
 	}
 	public Station getVorg(){
 		return vorg;
 	}
 	//Gibt die Nachfolgerstationen zurück
-	public HashMap<Station, Integer> getNachfolger(){
+	public TreeMap<Station, Integer> getNachfolger(){
 		return nachf;
 	}
 	//Setzt den Vorgänger
@@ -101,6 +101,12 @@ public class Station{
 	//Gibt zurück ob die Station ein umstieg ist
 	public boolean getUmstieg(){
 		return umstieg;
+	}
+
+	@Override
+	public int compareTo(Station o) {
+		// TODO Auto-generated method stub
+		return (o.getName().compareTo(this.getName())*-1);
 	}
 
 }

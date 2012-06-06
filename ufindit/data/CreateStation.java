@@ -4,7 +4,7 @@ package ufindit.data;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.Iterator;
 import java.util.Set;
 /**
@@ -41,7 +41,7 @@ public class CreateStation {
 			int i = 0;
 			verbindung = DriverManager.getConnection("jdbc:mysql://localhost/ufindit", user, pw);
 			statement = verbindung.createStatement();
-			rs = statement.executeQuery("SELECT distinct name from station  ORDER BY name;");
+			rs = statement.executeQuery("SELECT distinct name from station  ;");
 			while(rs.next()){
 				String name=rs.getString("name");
 				System.out.print(++i+"  "+name);
@@ -67,8 +67,8 @@ public class CreateStation {
 	 * @throws SQLException 
 	 */
 	public void createNachfolger() throws SQLException{
-		//Hier werden alle Nachfolgerstationen in einer HashMap gespeichert
-		HashMap<Station, Integer> hm = new HashMap<Station,Integer>();
+		//Hier werden alle Nachfolgerstationen in einer TreeMap gespeichert
+		TreeMap<Station, Integer> hm = new TreeMap<Station,Integer>();
 		//Durchgehen aller Stationen aus der Stationenliste
 		Iterator<Station> it = stationen.iterator();
 		while(it.hasNext()){
@@ -94,17 +94,9 @@ public class CreateStation {
 				hm.put(nf, dauer);
 			}
 			
-			Set<Station> snamen = hm.keySet();
-			//Nun wird für jede einzelne Station die Wegzeit + weitere Stationen berechnet!
-			int i = 0;
-			Iterator<Station> itr = snamen.iterator();
-			while(itr.hasNext()){
-				++i;
-				//Sperren der Station
-				System.out.println(i+itr.next().getName());
-			}
+			
 			s.setNachfolger(hm);
-			hm=new HashMap<Station,Integer>();
+			hm=new TreeMap<Station,Integer>();
 		}
 		
 	}
@@ -121,10 +113,8 @@ public class CreateStation {
 		}
 		return null;
 	}
-	/**
-	 * Gibt die StationenListe zurück
-	 */
-	public ArrayList<Station> getStationenListe(){
+	public ArrayList<Station> getStationen() {
+		// TODO Auto-generated method stub
 		return stationen;
 	}
 }
