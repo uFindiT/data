@@ -113,6 +113,18 @@ public class CreateStation {
 		}
 		return null;
 	}
+	/**
+	 * Gibt alle Stationen aus die Umstiege sind
+	 * 
+	 */
+	public void umstiegsStellen(){
+		Iterator<Station> it = stationen.iterator();
+		while(it.hasNext()){
+			Station s = it.next();
+			if(s.getUmstieg())
+				System.out.println("Umstieg:" +s.getName());
+		}
+	}
 	public ArrayList<Station> getStationen() {
 		// TODO Auto-generated method stub
 		return stationen;

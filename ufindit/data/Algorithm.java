@@ -12,14 +12,17 @@ import java.util.*;
 public class Algorithm {
 	private Station startStation, endStation;
 	private ArrayList<Station> al = new ArrayList<Station>();
+	private int umstiegsvar = 2;
 	//private ArrayList<Station> stationen;
 	/**
 	 * Konstruktor setzt die Start- und die Endstation. 
 	 */
-	public Algorithm(Station s, Station e, ArrayList<Station> ald){ //, ArrayList<Station> stat)
+	public Algorithm(Station s, Station e, ArrayList<Station> ald, boolean umst){ //, ArrayList<Station> stat)
 		startStation = s;
 		endStation = e;
 		al =ald;
+		if(umst)
+			umstiegsvar=30;
 		//stationen=stat;
 	}
 	/**
@@ -48,8 +51,7 @@ public class Algorithm {
 			//Nun wird für jede einzelne Station die Wegzeit + weitere Stationen berechnet!
 			Iterator<Station> it = snamen.iterator();
 			while(it.hasNext()){
-				if(s.getName().equals("Spittelau") || s.getName().equals("Rossauer Laende") || s.getName().equals("Shottenring"))
-					System.out.println(" ");;
+				
 				//Speichern in ein StationenObject
 				Station nf = it.next();
 				//Schauen ob de Weg von dieser Station kürzer ist
@@ -60,11 +62,19 @@ public class Algorithm {
 					nf.setVorg(s);
 					//Setzen der Dauer
 					nf.setDuration(s.getDuration()+nachf.get(nf));
-					//Berechnen des Wegens von dieser Station nun ausgehen!
-					//berechneWeg(getShortest());
+					//Testen ob es Umstieg ist
+					if(s.getVorg()!=null){
+						if(s.getLinie().length()>3){
+							if(!s.getVorg().getLinie().equals(nf.getLinie()) && nf.getLinie().length()<=3){
+								s.setUmstieg(true);
+								nf.setDuration(nf.getDuration()+umstiegsvar);
+							}
+						}
+						else
+							s.setUmstieg(false);
+					}
 					
 				}
-				
 				//Sperren der Station
 				s.lock();
 			}
@@ -93,14 +103,20 @@ public class Algorithm {
 		Station s = endStation;
 		System.out.println("WEG!!");
 		System.out.println(s.getName()+" " + s.getLinie() + "  " + s.getDuration());
+		//Berechnen Anzahl umst
+		int u=0;
+		while(s.getVorg()!=null){
+			//Testen ob Umstieg!
+			if(s.getUmstieg())
+				u++;
+			s=s.getVorg();
+		}
+		s=endStation;
 		while(s.getVorg()!=null){
 			
 			//Testen ob Umstieg!
-			if(s.getVorg().getLinie().length()>3){
-				if(!s.getVorg().getVorg().getLinie().equals(s.getLinie()))
-					//System.out.println("UMSTIEG!");
-				System.out.println(s.getVorg().getName()+" " + s.getVorg().getLinie() + " " +s.getVorg().getDuration());
-			}
+			if(s.getUmstieg())
+				System.out.println(s.getName() + " "+s.getLinie() + " "+(s.getDuration()));
 			s=s.getVorg();
 		}
 		System.out.println(s.getName()+" " + s.getLinie());
