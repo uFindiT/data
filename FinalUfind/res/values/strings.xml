@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, HelloSpinnerActivity!</string>
+    <string name="app_name">UfindIt</string>
+     <string name="Sprache_prompt">Wählen Sie eine Sprache</string>
+    <string name="language_prompt">Choose a language</string>
+    <string name="option_prompt">Sound</string>
+    <string name="optiong_prompt">Musik</string>
+    <string name="title_close">close</string>
+
+</resources>

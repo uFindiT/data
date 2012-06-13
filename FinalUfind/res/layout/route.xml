@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="top"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="404" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="fill_parent"
+            android:layout_height="426dp"
+            android:layout_weight="404"
+            android:src="@drawable/wienscaled" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="404" >
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="404" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_weight="404" />
+
+    </FrameLayout>
+
+</LinearLayout>

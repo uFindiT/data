@@ -1,0 +1,148 @@
+<resources>
+
+    <string-array name="Language">
+        <item>English</item>
+        <item>German</item>
+    </string-array>
+    <string-array name="Sprachen">
+        <item>Deutsch</item>
+        <item>Englisch</item>
+    </string-array>
+     <string-array name="Route">
+     </string-array>   
+    <string-array name="Sound">
+        <item>ON</item>
+        <item>OFF</item>
+    </string-array>
+    <string-array name="Soundg">
+        <item>AN</item>
+        <item>AUS</item>
+    </string-array>
+    <string-array name="UBahn">
+        <item>U1</item>
+        <item>U2</item>
+        <item>U3</item>
+        <item>U4</item>
+        <item>U6</item>
+    </string-array>
+    <string-array name="UBahn2">
+        <item>U1</item>
+        <item>U2</item>
+        <item>U3</item>
+        <item>U4</item>
+        <item>U6</item>
+    </string-array>
+    <string-array name="U1">
+        <item>Reumannplatz </item>
+        <item>Keplerplatz</item>
+        <item>Suedtiroler Platz</item>
+        <item>Taubstummengasse</item>
+        <item>Karlsplatz</item>
+        <item>Stephansplatz</item>
+        <item>Schwedenplatz</item>
+		<item>Nestroyplatz</item>
+		<item>Praterstern</item>
+		<item>Vorgartenstrasse</item>
+		<item>Donauinsel</item>
+		<item>Kaisermuehlen-VIC</item>
+		<item>Alte Donau</item>
+		<item>Kagran</item>
+		<item>Kagraner Platz</item>
+		<item>Rennbahnweg</item>
+		<item>Aderklaaer Strasse</item>
+		<item>Grossfeldsiedlung</item>
+		<item>Leopoldau</item>
+    </string-array>
+    <string-array name="U2">
+    	<item>Karlsplatz</item>
+		<item>Museumsquartier</item>
+		<item>Volkstheater</item>
+		<item>Rathaus</item>
+		<item>Schottentor</item>
+		<item>Schottenring</item>
+		<item>Taborstrasse</item>
+		<item>Paterstern</item>
+		<item>Messe-Prater</item>
+		<item>Krieau</item>
+		<item>Stadion</item>
+		<item>Donaumariana</item>
+		<item>Donaustadtbruecke</item>
+		<item>Stadlau</item>
+		<item>Hardeggasse</item>
+		<item>Donauspital</item>
+		<item>Aspernstrasse</item>
+	</string-array>
+	<string-array name="U3">
+	    <item>Simmering</item>
+	    <item>Enkplatz U/Grillgasse</item>
+	    <item>Zippererstrasse</item>
+	    <item>Gasometer</item>
+	    <item>Erdberg</item>
+	    <item>Schlachthausgasse</item>
+	    <item>Kardinal-Nagl-Platz</item>
+	    <item>Rochusgasse</item>
+	    <item>Landstrasse</item>
+	    <item>Stubentor</item>
+	    <item>Stephansplatz</item>
+	    <item>Herrengasse</item>
+	    <item>Volkstheater</item>
+	    <item>Neubaugasse</item>
+	    <item>Zieglergasse</item>
+	    <item>Westbahnhof</item>
+	    <item>Schweglerstrasse</item>
+	    <item>Johnstrasse</item>
+	    <item>Huetteldorfer Strasse</item>
+	    <item>Kendlerstrasse</item>
+	    <item>Ottakring</item>
+    </string-array>
+    <string-array name="U4">
+        <item>Huetteldorf</item>
+	    <item>Ober St Veit</item>
+	    <item>Unter St Veit</item>
+	    <item>Braunschweiggasse</item>
+	    <item>Hietzing, Kennedybruecke</item>
+	    <item>Schoenbrunn</item>
+	    <item>Meidling Hauptstrasse</item>
+	    <item>Laengenfeldgasse</item>
+	    <item>Margaretenguertel</item>
+	    <item>Pilgramgasse</item>
+	    <item>Kettenbrueckengasse</item>
+	    <item>Karlsplatz</item>
+	    <item>Stadtpark</item>
+	    <item>Landstrasse</item>
+	    <item>Schwedenplatz</item>
+	    <item>Schottenring</item>
+	    <item>Rossauer Laende</item>
+	    <item>Friedensbruecke</item>
+	    <item>Spittelau</item>
+	    <item>Heiligenstadt</item>
+	</string-array>
+	<string-array name="U6">
+	
+    	<item>Floridsdorf</item>
+	    <item>Neue Donau</item>
+	    <item>Handelskai</item>
+	    <item>Dresdner Strasse</item>
+	    <item>Jaegerstrasse</item>
+	    <item>Spittelau</item>
+	    <item>Nussdorfer Strasse</item>
+	    <item>Waehringer Strasse-Volksoper</item>
+	    <item>Michelbeuern-AKH</item>
+	    <item>Alser Strasse</item>
+	    <item>Josefstaedter Strasse</item>
+	    <item>Thaliastrasse</item>
+	    <item>Burggasse-Stadhalle</item>
+	    <item>Westbahnhof</item>
+	    <item>Grumpendorfer Strasse</item>
+	    <item>Laengenfeldgasse</item>
+	    <item>Niederhofstrasse</item>
+	    <item>Philadelphiabruecke</item>
+	    <item>Tscherttegasse</item>
+	    <item>Am Schoepfwerk</item>
+	    <item>Alterlaa</item>
+	    <item>Erlaaer Strasse</item>
+	    <item>Perfektastrasse</item>
+	    <item>Siebenhirten</item>
+	 </string-array>
+        
+</resources>
